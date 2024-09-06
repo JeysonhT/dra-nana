@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "107983518301",
+    "project_id": "dra-nana",
+    "storage_bucket": "dra-nana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107983518301:android:ae36e064af2771ab40abb4",
+        "android_client_info": {
+          "package_name": "com.drnana.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA60VNCIOyaC3-v146ZYjNm555KTQVM27w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
