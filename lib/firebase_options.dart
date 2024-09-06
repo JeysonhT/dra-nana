@@ -49,20 +49,5 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA_csBqRMIX58vzjVmVTriU88q2dWB3DfY',
-    appId: '1:107983518301:web:14ed145437d8893240abb4',
-    messagingSenderId: '107983518301',
-    projectId: 'dra-nana',
-    authDomain: 'dra-nana.firebaseapp.com',
-    storageBucket: 'dra-nana.appspot.com',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA60VNCIOyaC3-v146ZYjNm555KTQVM27w',
-    appId: '1:107983518301:android:ae36e064af2771ab40abb4',
-    messagingSenderId: '107983518301',
-    projectId: 'dra-nana',
-    storageBucket: 'dra-nana.appspot.com',
-  );
+  // api keys
 }
