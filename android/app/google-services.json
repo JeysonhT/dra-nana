@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:107983518301:android:ae36e064af2771ab40abb4",
+        "mobilesdk_app_id": "1:107983518301:android:de49eef20dae863c40abb4",
         "android_client_info": {
-          "package_name": "com.drnana.app"
+          "package_name": "com.example.dra_nana"
         }
       },
       "oauth_client": [],
