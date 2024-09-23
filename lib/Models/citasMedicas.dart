@@ -1,3 +1,5 @@
+import 'package:dra_nana/Models/examenesMedicos.dart';
+
 class Citasmedicas {
   int _id;
   int _pacienteId;
@@ -5,7 +7,7 @@ class Citasmedicas {
   DateTime _fecha;
   String _motivo;
   List<String> _recetas;
-  List<String> _examenes;
+  List<ExamenesMedicos> _examenes;
 
   Citasmedicas(this._id, this._pacienteId, this._medicoId, this._fecha,
       this._motivo, this._recetas, this._examenes);
@@ -13,11 +15,11 @@ class Citasmedicas {
   // getters & setters
   int get id => _id;
 
-  get pacienteId => _pacienteId;
+  int get pacienteId => _pacienteId;
 
   set pacienteId(value) => _pacienteId = value;
 
-  get medicoId => _medicoId;
+  int get medicoId => _medicoId;
 
   set medicoId(value) => _medicoId = value;
 
@@ -36,4 +38,16 @@ class Citasmedicas {
   get examenes => _examenes;
 
   set examenes(value) => _examenes = value;
+
+  Map<String, dynamic> toFirestore() {
+    return {
+      "id": _id,
+      "pacienteId": _pacienteId,
+      "medicoId": _medicoId,
+      "fecha": _fecha,
+      "motivo": _motivo,
+      "examenes": _examenes,
+      "recetas": _recetas
+    };
+  }
 }

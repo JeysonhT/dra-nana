@@ -22,4 +22,13 @@ class Historialvisitas {
   get getUltimaVisita => _ultimaVisita;
 
   set setUltimaVisita(ultimaVisita) => _ultimaVisita = ultimaVisita;
+
+  Map<String, dynamic> toFirestore() {
+    return {
+      "id": _id,
+      "pacienteId": _pacienteId,
+      "citasMedicas": _citasMedicas,
+      "ultimaVisita": _ultimaVisita
+    };
+  }
 }
