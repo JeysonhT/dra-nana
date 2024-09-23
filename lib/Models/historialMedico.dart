@@ -7,9 +7,16 @@ class Historialmedico {
   List<String> _alergias;
   List<String> _tratamientos;
   List<Vacunas> _vacunas;
+  List<int> _citasMedicas;
 
   Historialmedico(this._id, this._pacienteId, this._condicionesMedicas,
-      this._alergias, this._tratamientos, this._vacunas);
+      this._alergias, this._tratamientos, this._vacunas, this._citasMedicas);
+
+  Historialmedico.basico(this._id, this._pacienteId, this._citasMedicas,
+      [this._alergias = const [],
+      this._condicionesMedicas = const [],
+      this._tratamientos = const [],
+      this._vacunas = const []]);
 
   //getters & setters
 
@@ -34,4 +41,16 @@ class Historialmedico {
   get vacunas => _vacunas;
 
   set vacunas(value) => _vacunas = value;
+
+  Map<String, dynamic> toMap() {
+    return {
+      "id": _id,
+      "pacienteId": _pacienteId,
+      "condicionesMedicas": _condicionesMedicas,
+      "alergias": alergias,
+      "tratamientos": _tratamientos,
+      "vacunas": _vacunas,
+      "citasMedicas": _citasMedicas
+    };
+  }
 }
