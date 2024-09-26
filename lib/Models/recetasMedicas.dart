@@ -1,7 +1,7 @@
 import 'package:dra_nana/Models/medicamentos.dart';
 
 class Recetasmedicas {
-  int _id;
+  final int _id;
   int _pacienteId;
   int _medicoId;
 

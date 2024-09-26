@@ -1,5 +1,5 @@
 class Especialidad {
-  int _id;
+  final int _id;
   String _area;
 
   Especialidad(this._id, this._area);
