@@ -1,5 +1,5 @@
 class SeguroMedico {
-  int _id;
+  final int _id;
   int _pacienteId;
   String _nombreSeguro;
   int _numeroPoliza;

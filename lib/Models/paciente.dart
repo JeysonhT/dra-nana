@@ -1,7 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dra_nana/Models/vacunas.dart';
 
 class Paciente {
-  int _id;
+  final int _id;
   String _nombre;
   DateTime _fechaNacimiento;
   String _sexo;
@@ -88,4 +89,25 @@ class Paciente {
   }
 
   set vacunas(List<Vacunas> value) => _vacunas = value;
+
+  factory Paciente.fromFirestore(
+      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    final data = snapshot.data();
+
+    return Paciente(
+        data?["id"],
+        data?["nombre"],
+        DateTime.parse(data?["fechaNacimiento"]),
+        data?["sexo"],
+        data?["dirreccion"],
+        data?["telefono"],
+        data?["correo"],
+        data?["seguromedico"],
+        data?["vacunas"]);
+  }
+
+  factory Paciente.empty() {
+    return Paciente(0, "noExiste", DateTime.now(), "no tiene", "no hay", "",
+        "@Nada", 0, const []);
+  }
 }

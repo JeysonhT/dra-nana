@@ -1,24 +1,45 @@
 import 'package:dra_nana/Models/citasMedicas.dart';
 import 'package:dra_nana/Models/historialMedico.dart';
 import 'package:dra_nana/Models/historialVisitas.dart';
+import 'package:dra_nana/Models/vacunas.dart';
 import 'package:dra_nana/Services/firestoreService.dart';
 import 'package:dra_nana/utils/idGenerator.dart';
 
 class MedicosServices {
-  final Firestoreservice fireService;
+  final db = Firestoreservice().getDb();
 
-  MedicosServices(this.fireService);
+  MedicosServices();
+
+  //caso de uso historial de vacunas
+  Future<List<Vacunas>?> getVacunasbyId(int id) async {
+    List<Vacunas> v = [];
+
+    var documentSnapshot =
+        await db.collection("pacientes").doc(id.toString()).get();
+
+    if (!documentSnapshot.exists) return const [];
+
+    var paciente = await db.collection("Paciente").doc(id.toString()).get();
+
+    List<dynamic> pData = paciente.get("vacunas");
+
+    v = pData
+        .map((vacuna) => Vacunas.fromMap(vacuna as Map<String, dynamic>))
+        .toList();
+
+    return v;
+  }
 
   Future<String> saveCitaMedica(Citasmedicas c) async {
     try {
       if (await _validarUsuario(c.pacienteId)) {
         var data = c.toFirestore();
 
-        await fireService.getDb().collection("citasMedicas").add(data);
+        await db.collection("citasMedicas").add(data);
 
         return c.toString();
       } else {
-        return "No se pudo guardar la cita medica por que el paciete no existe";
+        return "No se pudo guardar la cita medica por que el paciente no existe";
       }
     } catch (e) {
       return "error al gurdar la cita medica : $e";
@@ -33,10 +54,7 @@ class MedicosServices {
 
       var data = Historialmedico.basico(idvalue, id, [citamedica.id]).toMap();
 
-      final docRef = fireService
-          .getDb()
-          .collection("HistorialMedico")
-          .doc(idvalue.toString());
+      final docRef = db.collection("HistorialMedico").doc(idvalue.toString());
 
       await docRef.set(data);
 
@@ -55,8 +73,7 @@ class MedicosServices {
           Historialvisitas(id, pacienteId, [cita], DateTime.now().toString())
               .toFirestore();
 
-      final docRec =
-          fireService.getDb().collection("historialVisitas").doc(id.toString());
+      final docRec = db.collection("historialVisitas").doc(id.toString());
 
       await docRec.set(data);
 
@@ -68,11 +85,7 @@ class MedicosServices {
 
   Future<bool> _validarUsuario(int id) async {
     try {
-      var paciente = await fireService
-          .getDb()
-          .collection("pacientes")
-          .doc(id.toString())
-          .get();
+      var paciente = await db.collection("pacientes").doc(id.toString()).get();
 
       return paciente.exists;
     } catch (e) {
@@ -81,7 +94,7 @@ class MedicosServices {
   }
 
   Future<int> _ultimoId() async {
-    var documents = await fireService.getDb().collection("pacientes").get();
+    var documents = await db.collection("pacientes").get();
 
     return documents.size;
   }

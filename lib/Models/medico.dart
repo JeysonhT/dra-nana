@@ -1,7 +1,7 @@
 class Medico {
-  int _id;
+  final int _id;
   String _nombre;
-  int _especialidadId;
+  final int _especialidadId;
   String _telefono;
   String _correo;
   String _horario;

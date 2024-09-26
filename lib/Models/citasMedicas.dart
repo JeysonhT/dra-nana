@@ -1,7 +1,7 @@
 import 'package:dra_nana/Models/examenesMedicos.dart';
 
 class Citasmedicas {
-  int _id;
+  final int _id;
   int _pacienteId;
   int _medicoId;
   DateTime _fecha;

@@ -1,13 +1,13 @@
 import 'package:dra_nana/Models/vacunas.dart';
 
 class Historialmedico {
-  int _id;
+  final int _id;
   int _pacienteId;
   List<String> _condicionesMedicas;
   List<String> _alergias;
   List<String> _tratamientos;
   List<Vacunas> _vacunas;
-  List<int> _citasMedicas;
+  final List<int> _citasMedicas;
 
   Historialmedico(this._id, this._pacienteId, this._condicionesMedicas,
       this._alergias, this._tratamientos, this._vacunas, this._citasMedicas);
