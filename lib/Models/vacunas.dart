@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Vacunas {
-  int _id;
+  final int _id;
   String _nombre;
   String _fechaAplicacion;
   int _dosis;
