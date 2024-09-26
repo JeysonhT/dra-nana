@@ -1,7 +1,7 @@
 import 'package:dra_nana/Models/citasMedicas.dart';
 
 class Historialvisitas {
-  int _id;
+  final int _id;
   int _pacienteId;
   List<Citasmedicas> _citasMedicas;
   String _ultimaVisita;

@@ -65,5 +65,4 @@ class DefaultFirebaseOptions {
     projectId: 'dra-nana',
     storageBucket: 'dra-nana.appspot.com',
   );
-
 }

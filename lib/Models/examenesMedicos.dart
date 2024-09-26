@@ -1,5 +1,5 @@
 class ExamenesMedicos {
-  int _id;
+  final int _id;
   int _pacienteId;
   String _tipo;
   String _resultados;

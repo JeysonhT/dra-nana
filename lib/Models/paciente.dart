@@ -1,7 +1,7 @@
 import 'package:dra_nana/Models/vacunas.dart';
 
 class Paciente {
-  int _id;
+  final int _id;
   String _nombre;
   DateTime _fechaNacimiento;
   String _sexo;

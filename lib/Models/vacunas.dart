@@ -1,5 +1,5 @@
 class Vacunas {
-  int _id;
+  final int _id;
   String _nombre;
   String _fechaAplicacion;
   final int _dosis;
